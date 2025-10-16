@@ -100,10 +100,11 @@ public class ServeurChat extends Serveur {
     public void envoyerATousSauf(String str,String aliasExpediteur){
         String s = "";
         for (Connexion cnx:connectes){
-            if (cnx.getAlias().equals(aliasExpediteur)){
-                return;
+            if (cnx.getAlias().equalsIgnoreCase(aliasExpediteur)){
+
+            }else {
+                cnx.envoyer(aliasExpediteur + " >> " + str);
             }
-        cnx.envoyer(str + " " + aliasExpediteur);
         }
     }
 }
