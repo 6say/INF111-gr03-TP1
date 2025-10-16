@@ -3,19 +3,19 @@ package com.chat.serveur;
 import com.commun.net.Connexion;
 
 /**
- * Cette classe �tend (h�rite) la classe abstraite Serveur et y ajoute le n�cessaire pour que le
+ * Cette classe etend (herite) la classe abstraite Serveur et y ajoute le necessaire pour que le
  * serveur soit un serveur de chat.
  *
- * @author Abdelmoum�ne Toudeft (Abdelmoumene.Toudeft@etsmtl.ca)
+ * @author Abdelmoumene Toudeft (Abdelmoumene.Toudeft@etsmtl.ca)
  * @version 1.0
  * @since 2023-09-15
  */
 public class ServeurChat extends Serveur {
 
     /**
-     * Cr�e un serveur de chat qui va �couter sur le port sp�cifi�.
+     * Cree un serveur de chat qui va ecouter sur le port specifie.
      *
-     * @param port int Port d'�coute du serveur
+     * @param port int Port d'ecoute du serveur
      */
     public ServeurChat(int port) {
         super(port);
@@ -33,12 +33,12 @@ public class ServeurChat extends Serveur {
         return super.ajouter(connexion);
     }
     /**
-     * Valide l'arriv�e d'un nouveau client sur le serveur. Cette red�finition
-     * de la m�thode h�rit�e de Serveur v�rifie si le nouveau client a envoy�
-     * un alias compos� uniquement des caract�res a-z, A-Z, 0-9, - et _.
+     * Valide l'arrivee d'un nouveau client sur le serveur. Cette redefinition
+     * de la methode heritee de Serveur verifie si le nouveau client a envoye
+     * un alias compose uniquement des caracteres a-z, A-Z, 0-9, - et _.
      *
-     * @param connexion Connexion la connexion repr�sentant le client
-     * @return boolean true, si le client a valid� correctement son arriv�e, false, sinon
+     * @param connexion Connexion la connexion representant le client
+     * @return boolean true, si le client a valide correctement son arrivee, false, sinon
      */
     @Override
     protected boolean validerConnexion(Connexion connexion) {
@@ -62,7 +62,7 @@ public class ServeurChat extends Serveur {
         if (!res)
             return false;
         for (Connexion cnx:connectes) {
-            if (aliasFourni.equalsIgnoreCase(cnx.getAlias())) { //alias d�j� utilis�
+            if (aliasFourni.equalsIgnoreCase(cnx.getAlias())) { //alias deje utilise
                 res = false;
                 break;
             }
@@ -74,9 +74,9 @@ public class ServeurChat extends Serveur {
     }
 
     /**
-     * Retourne la liste des alias des connect�s au serveur dans une cha�ne de caract�res.
+     * Retourne la liste des alias des connectes au serveur dans une chaene de caracteres.
      *
-     * @return String cha�ne de caract�res contenant la liste des alias des membres connect�s sous la
+     * @return String chaene de caracteres contenant la liste des alias des membres connectes sous la
      * forme alias1:alias2:alias3 ...
      */
     public String list() {
@@ -86,10 +86,10 @@ public class ServeurChat extends Serveur {
         return s;
     }
     /**
-     * Retourne la liste des messages de l'historique de chat dans une cha�ne
-     * de caract�res.
+     * Retourne la liste des messages de l'historique de chat dans une chaene
+     * de caracteres.
      *
-     * @return String cha�ne de caract�res contenant la liste des alias des membres connect�s sous la
+     * @return String chaene de caracteres contenant la liste des alias des membres connectes sous la
      * forme message1\nmessage2\nmessage3 ...
      */
     public String historique() {

@@ -6,10 +6,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- * Cette classe représente un point de connexion d'un client vers un serveur ou d'un serveur vers un client.
- * Encapsule le socket utilisé pour la connexion ainsi que les flux de caractères pour envoyer et recevoir du texte.
+ * Cette classe represente un point de connexion d'un client vers un serveur ou d'un serveur vers un client.
+ * Encapsule le socket utilise pour la connexion ainsi que les flux de caracteres pour envoyer et recevoir du texte.
  *
- * @author Abdelmoumène Toudeft (Abdelmoumene.Toudeft@etsmtl.ca)
+ * @author Abdelmoumene Toudeft (Abdelmoumene.Toudeft@etsmtl.ca)
  * @version 1.0
  * @since 2023-09-01
  */
@@ -21,9 +21,9 @@ public class Connexion {
     private String alias;
 
     /**
-     * Construit une connexion sur un socket, initialisant les flux de caractères utilisés par le socket.
+     * Construit une connexion sur un socket, initialisant les flux de caracteres utilises par le socket.
      *
-     * @param s Socket Le socket sur lequel la connexion est créée
+     * @param s Socket Le socket sur lequel la connexion est creee
      */
     public Connexion(Socket s) {
         try {
@@ -35,9 +35,9 @@ public class Connexion {
     }
 
     /**
-     * Vérifie si du texte est arrivé sur la connexion et le retourne. Retourne la chaine vide s'il n'y a pas de texte.
+     * Verifie si du texte est arrive sur la connexion et le retourne. Retourne la chaine vide s'il n'y a pas de texte.
      *
-     * @return String le texte reçu, ou la chaine vide, si aucun texte n'est arrivé.
+     * @return String le texte reeu, ou la chaine vide, si aucun texte n'est arrive.
      */
     public String getAvailableText() {
         String t = "";
@@ -60,7 +60,7 @@ public class Connexion {
     /**
      * Envoie un texte sur la connexion
      *
-     * @param texte String texte envoyé
+     * @param texte String texte envoye
      */
     public void envoyer(String texte) {
         os.print(texte);
@@ -68,9 +68,9 @@ public class Connexion {
     }
 
     /**
-     * Ferme la connexion en fermant le socket et les flux utilisés.
+     * Ferme la connexion en fermant le socket et les flux utilises.
      *
-     * @return true si la connexion a été fermée correctement et false, sinon.
+     * @return true si la connexion a ete fermee correctement et false, sinon.
      */
     public boolean close() {
         try {

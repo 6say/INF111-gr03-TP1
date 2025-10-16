@@ -22,9 +22,9 @@ public class ClientSimple {
 			//Connexion au serveur :
 			socket = new Socket(ADRESSE_IP_SERVEUR,PORT_ECOUTE_SERVEUR);
 
-			System.out.println("Connexion établie avec le serveur...");
+			System.out.println("Connexion etablie avec le serveur...");
 
-			//Création des flux d'entrée/sortie pour la communication avec le serveur :
+			//Creation des flux d'entree/sortie pour la communication avec le serveur :
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			pw = new PrintWriter(socket.getOutputStream());
 
@@ -34,9 +34,9 @@ public class ClientSimple {
 			pw.println(message);
 			pw.flush();
 			while (!"FIN".equals(message)) {
-				//Attente et lecture de la réponse du serveur :
+				//Attente et lecture de la reponse du serveur :
 				reponseRecu = br.readLine();
-				System.out.println("Réponse du serveur : "+reponseRecu);
+				System.out.println("Reponse du serveur : "+reponseRecu);
 
 				//Envoi du message suivant :
 				System.out.print("Saisissez votre message (FIN pour terminer) : ");
