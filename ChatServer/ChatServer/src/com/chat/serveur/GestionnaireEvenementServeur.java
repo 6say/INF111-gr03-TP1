@@ -52,7 +52,7 @@ public class GestionnaireEvenementServeur implements GestionnaireEvenement {
                 case "MSG":
                     aliasExpediteur = cnx.getAlias();
                     msg = evenement.getArgument();
-                    serveur.envoyerATousSauf(aliasExpediteur, msg);
+                    serveur.envoyerATousSauf(msg, aliasExpediteur);
 
                 //Ajoutez ici d�autres case pour g�rer d�autres commandes.
 
