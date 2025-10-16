@@ -2,6 +2,8 @@ package com.chat.serveur;
 
 import com.commun.net.Connexion;
 
+import java.util.Vector;
+
 /**
  * Cette classe �tend (h�rite) la classe abstraite Serveur et y ajoute le n�cessaire pour que le
  * serveur soit un serveur de chat.
@@ -11,7 +13,7 @@ import com.commun.net.Connexion;
  * @since 2023-09-15
  */
 public class ServeurChat extends Serveur {
-
+    private Vector<String> historique;
     /**
      * Cr�e un serveur de chat qui va �couter sur le port sp�cifi�.
      *
@@ -93,8 +95,23 @@ public class ServeurChat extends Serveur {
      * forme message1\nmessage2\nmessage3 ...
      */
     public String historique() {
+
         String s = "";
+        if(historique==null){
+            historique = new Vector<String>();
+            return s;
+        }else {
+            for (String message:historique) {
+                s += message + "\n";
+            }
+        }
+
         return s;
+    }
+
+    public void ajouterHistorique(String str,String aliasExpediteur) {
+        String message = aliasExpediteur + " >> " + str;
+        historique.add(message);
     }
 
     public void envoyerATousSauf(String str,String aliasExpediteur){

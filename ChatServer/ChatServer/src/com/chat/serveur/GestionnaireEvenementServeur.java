@@ -53,6 +53,7 @@ public class GestionnaireEvenementServeur implements GestionnaireEvenement {
                     aliasExpediteur = cnx.getAlias();
                     msg = evenement.getArgument();
                     serveur.envoyerATousSauf(msg, aliasExpediteur);
+                    serveur.ajouterHistorique(msg,aliasExpediteur);
 
                 //Ajoutez ici d�autres case pour g�rer d�autres commandes.
 
