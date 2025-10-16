@@ -103,7 +103,7 @@ public class ServeurChat extends Serveur {
             if (cnx.getAlias().equals(aliasExpediteur)){
                 return;
             }
-        cnx.envoyer(aliasExpediteur + " " + str);
+        cnx.envoyer(str + " " + aliasExpediteur);
         }
     }
 }
