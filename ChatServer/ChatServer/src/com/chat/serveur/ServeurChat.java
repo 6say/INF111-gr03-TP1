@@ -2,6 +2,9 @@ package com.chat.serveur;
 
 import com.commun.net.Connexion;
 
+import java.util.ListIterator;
+import java.util.Vector;
+
 /**
  * Cette classe �tend (h�rite) la classe abstraite Serveur et y ajoute le n�cessaire pour que le
  * serveur soit un serveur de chat.
@@ -11,6 +14,8 @@ import com.commun.net.Connexion;
  * @since 2023-09-15
  */
 public class ServeurChat extends Serveur {
+    //Attribut historque qui permet au serveur de se rappeler de chaque message sous forme de String dans un Vecteur
+    private Vector<String> historique;
 
     /**
      * Cr�e un serveur de chat qui va �couter sur le port sp�cifi�.
@@ -19,6 +24,7 @@ public class ServeurChat extends Serveur {
      */
     public ServeurChat(int port) {
         super(port);
+        historique = new Vector<String>();
     }
 
     @Override
@@ -92,8 +98,16 @@ public class ServeurChat extends Serveur {
      * @return String cha�ne de caract�res contenant la liste des alias des membres connect�s sous la
      * forme message1\nmessage2\nmessage3 ...
      */
+    public void ajouterHistorique(String msg,String alias) {
+        historique.add(alias + " >> " + msg);
+    }
+
     public String historique() {
         String s = "";
+        ListIterator<String> iterateur = historique.listIterator();
+        while(iterateur.hasNext()) {
+            s += iterateur.next() + "\n";
+        }
         return s;
     }
 
