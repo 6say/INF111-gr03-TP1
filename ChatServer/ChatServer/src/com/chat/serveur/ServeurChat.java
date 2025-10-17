@@ -14,7 +14,9 @@ import java.util.Vector;
  * @since 2023-09-15
  */
 public class ServeurChat extends Serveur {
-    public Vector<String> historique = new Vector<String>();
+    //Attribut historque qui permet au serveur de se rappeler de chaque message sous forme de String dans un Vecteur
+    private Vector<String> historique;
+
     /**
      * Cr�e un serveur de chat qui va �couter sur le port sp�cifi�.
      *
@@ -22,6 +24,7 @@ public class ServeurChat extends Serveur {
      */
     public ServeurChat(int port) {
         super(port);
+        historique = new Vector<String>();
     }
 
     @Override
